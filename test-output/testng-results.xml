@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="8276" started-at="2016-09-21T21:54:35Z" finished-at="2016-09-21T21:54:43Z">
+  <suite name="Default suite" duration-ms="7974" started-at="2016-09-21T22:14:49Z" finished-at="2016-09-21T22:14:57Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="8276" started-at="2016-09-21T21:54:35Z" finished-at="2016-09-21T21:54:43Z">
-      <class name="test">
-        <test-method status="PASS" signature="Test3(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test@553fd068]" name="Test3" duration-ms="3575" started-at="2016-09-21T14:54:35Z" data-provider="data-provider-sample1" finished-at="2016-09-21T14:54:38Z">
+    <test name="Default test" duration-ms="7974" started-at="2016-09-21T22:14:49Z" finished-at="2016-09-21T22:14:57Z">
+      <class name="TestQBMail">
+        <test-method status="PASS" signature="Test3(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:TestQBMail@6a8bda08]" name="Test3" duration-ms="3356" started-at="2016-09-21T15:14:49Z" data-provider="data-provider-sample1" finished-at="2016-09-21T15:14:52Z">
           <params>
             <param index="0">
               <value>
@@ -33,7 +33,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test3 -->
-        <test-method status="PASS" signature="Test3(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test@553fd068]" name="Test3" duration-ms="2363" started-at="2016-09-21T14:54:38Z" data-provider="data-provider-sample1" finished-at="2016-09-21T14:54:41Z">
+        <test-method status="PASS" signature="Test3(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:TestQBMail@6a8bda08]" name="Test3" duration-ms="2293" started-at="2016-09-21T15:14:52Z" data-provider="data-provider-sample1" finished-at="2016-09-21T15:14:54Z">
           <params>
             <param index="0">
               <value>
@@ -59,7 +59,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test3 -->
-        <test-method status="PASS" signature="Test3(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test@553fd068]" name="Test3" duration-ms="2304" started-at="2016-09-21T14:54:41Z" data-provider="data-provider-sample1" finished-at="2016-09-21T14:54:43Z">
+        <test-method status="PASS" signature="Test3(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:TestQBMail@6a8bda08]" name="Test3" duration-ms="2304" started-at="2016-09-21T15:14:54Z" data-provider="data-provider-sample1" finished-at="2016-09-21T15:14:57Z">
           <params>
             <param index="0">
               <value>
@@ -85,7 +85,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test3 -->
-      </class> <!-- test -->
+      </class> <!-- TestQBMail -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

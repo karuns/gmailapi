@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
  */
 
 public class TestQBMail {	
-	@Test(enabled=true, dataProvider="data-provider-sample1",dataProviderClass=DataProviderClass.class)
+	@Test(dataProvider="data-provider-sample1",dataProviderClass=DataProviderClass.class)
     public static void Test3(String from, String to, String subject, String body) throws InterruptedException, IOException {
 
 		GmailAccount user1 = new GmailAccount(from);
