@@ -55,6 +55,7 @@ public class GmailAccount {
     }
     public GmailAccount (String userId) {
     	this.userId = userId;    	
+    	System.out.println(System.getProperty("user.home"));
     	this.dataStoreDir = new java.io.File(System.getProperty("user.home"), ".credentials/gmail-java_"+userId);    	
         try {
 			this.HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
