@@ -24,8 +24,8 @@ public class TestQBMail {
 		Message m = user1.getEmail(id);
 		Thread.sleep(2000);
 		
-		System.out.println("PASS -"+m.getRaw());
-		System.out.println("PASS -"+m.toPrettyString().toString());
+		System.out.println("PASS  -"+m.getRaw());
+		System.out.println("PASS  -"+m.toPrettyString().toString());
 	}
 	
 	@Test(dataProvider="data-provider-sample1",dataProviderClass=DataProviderClass.class, groups={"send-only-from-user1"})
