@@ -2,14 +2,16 @@ import java.io.IOException;
 
 import gclient.GmailAccount;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 /*
- * send and receive basic validation 
+ * DONE -- send and receive basic validation 
  * Data provider
  * Jenkins cloud
  * methods with basic attachments
  * 
  */
+
 
 
 import com.google.api.services.gmail.model.Message;
@@ -29,31 +31,22 @@ public class test {
 //		user2.sendEmail("sohan.karun1@gmail.com", "eyrsd","Hello from Sohan.karun2");
 //	}
 	
-	@Test
-    public static void Test3() throws InterruptedException, IOException {
+	@Test(dataProvider="data-provider-sample1",dataProviderClass=DataProviderClass.class)
+    public static void Test3(String from, String to, String subject, String body) throws InterruptedException, IOException {
 
-			GmailAccount user1 = new GmailAccount("sohan.karun1@gmail.com");
-			String id = user1.sendEmail("sohan.karun2@gmail.com", "nhyrsd","Hello from Sohan.karun3").getId();
+		GmailAccount user1 = new GmailAccount(from);
+		String id = user1.sendEmail(to, subject,body).getId();
 			
 		GmailAccount user2 = new GmailAccount("sohan.karun2@gmail.com");
 		Message m = user1.getEmail(id);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		System.out.println(m.getRaw());
 		System.out.println(m.toPrettyString().toString());
-		
-		
-		
-		
-		//user2.sendEmail("sohan.karun1@gmail.com", "eyrsd","Hello from Sohan.karun2");
 	}
 	
 		
 //		MimeMessage m1 = SendEmail.createEmail("sohan.karun2@gmail.com","sohan.karun1@gmail.com", "heysd","Hello from Sohan.karun2");
 //		user1.sendEmail(m1);
-		
-		
-		
-		
 		//se.createEmail("sohan.karun2@gmail.com",user, "heysd","Hello from Sohan.karun2")
     	// Building new authorized API client service.
 //        Gmail service = getGmailService();
