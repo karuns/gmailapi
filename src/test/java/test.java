@@ -40,8 +40,9 @@ public class test {
 		GmailAccount user2 = new GmailAccount("sohan.karun2@gmail.com");
 		Message m = user1.getEmail(id);
 		Thread.sleep(2000);
-		System.out.println(m.getRaw());
-		System.out.println(m.toPrettyString().toString());
+		
+		System.out.println("PASS -"+m.getRaw());
+		System.out.println("PASS -"+m.toPrettyString().toString());
 	}
 	
 		
