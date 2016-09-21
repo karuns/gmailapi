@@ -1,4 +1,4 @@
-package qbmail;
+
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
@@ -14,6 +14,8 @@ import com.google.api.services.gmail.GmailScopes;
 import com.google.api.services.gmail.model.*;
 import com.google.api.services.gmail.Gmail;
 
+import gclient.SendEmail;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -22,7 +24,7 @@ import java.util.List;
 
 import javax.mail.MessagingException;
 
-public class QBMail {
+public class CopyOfQBMail {
     /** Application name. */
     private static final String APPLICATION_NAME = "Gmail API Java Quickstart";
 
@@ -63,8 +65,10 @@ public class QBMail {
      */
     public static Credential authorize() throws IOException {
         // Load client secrets.
-        InputStream in = QBMail.class.getResourceAsStream("/client_secret.json");
-        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
+        InputStream in =
+            CopyOfQBMail.class.getResourceAsStream("/client_secret.json");
+        GoogleClientSecrets clientSecrets =
+            GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
         // Build flow and trigger user authorization request.
         GoogleAuthorizationCodeFlow flow =
@@ -73,8 +77,10 @@ public class QBMail {
                 .setDataStoreFactory(DATA_STORE_FACTORY)
                 .setAccessType("offline")
                 .build();
-        Credential credential = new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize("user");
-        System.out.println("Credentials saved to " + DATA_STORE_DIR.getAbsolutePath());
+        Credential credential = new AuthorizationCodeInstalledApp(
+            flow, new LocalServerReceiver()).authorize("user");
+        System.out.println(
+                "Credentials saved to " + DATA_STORE_DIR.getAbsolutePath());
         return credential;
     }
 
@@ -91,14 +97,25 @@ public class QBMail {
     }
 
     public static void main(String[] args) throws IOException, MessagingException {
-        
-    	// Building new authorized API client service.
+        // Build a new authorized API client service.
         Gmail service = getGmailService();
+
+        // Print the labels in the user's account.
         String user = "me";
+//        ListLabelsResponse listResponse =
+//            service.users().labels().list(user).execute();
+//        List<Label> labels = listResponse.getLabels();
+//        if (labels.size() == 0) {
+//            System.out.println("No labels found.");
+//        } else {
+//            System.out.println("Labels:");
+//            for (Label label : labels) {
+//                System.out.printf("- %s\n", label.getName());
+//            }
+//        }
+//        
         SendEmail se = new SendEmail();
-        SendEmail.sendMessage(service, "me",  se.createEmail("sohan.karun2@gmail.com", "me", "hey","Hello from Sohan.karun2"));
-        
-        
-        
+        SendEmail.sendMessage(service, "me",  se.createEmail("sohan.karun2@gmail.com", "me", "hedry","Hello from Sohan.karun2"));
     }
+
 }

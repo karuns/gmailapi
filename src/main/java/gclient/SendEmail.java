@@ -1,4 +1,5 @@
-package qbmail;
+package gclient;
+
 
 import com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64;
 import com.google.api.services.gmail.Gmail;

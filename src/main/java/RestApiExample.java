@@ -1,4 +1,4 @@
-package qbmail;
+
 
 public class RestApiExample {
 
