@@ -109,9 +109,9 @@ public class GmailAccount {
     	SendEmail.sendMessage(service, userId, m);
     }
     
-    public  void sendEmail(String to, String subject, String bodyText) {
+    public  Message sendEmail(String to, String subject, String bodyText) {
     	try {
-			SendEmail.sendMessage(service, userId, SendEmail.createEmail(to, userId, subject, bodyText));
+			return SendEmail.sendMessage(service, userId, SendEmail.createEmail(to, userId, subject, bodyText));
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -119,16 +119,17 @@ public class GmailAccount {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return null;
     }
     
-    public  void getEmail(String emailId) {
-    	
+    public  Message getEmail(String emailId) {
 			try {
-				System.out.println(GetMessage.getMessage(service, userId, emailId).toPrettyString());
+				return GetMessage.getMessage(service, userId, emailId);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			return null;
     }
 
 }

@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 import gclient.GmailAccount;
 
 import org.testng.annotations.Test;
@@ -8,6 +10,9 @@ import org.testng.annotations.Test;
  * methods with basic attachments
  * 
  */
+
+
+import com.google.api.services.gmail.model.Message;
 
 public class test {
 //	@Test
@@ -25,10 +30,17 @@ public class test {
 //	}
 	
 	@Test
-    public static void Test3() throws InterruptedException {
+    public static void Test3() throws InterruptedException, IOException {
 
-		GmailAccount user1 = new GmailAccount("sohan.karun1@gmail.com");
-		user1.getEmail("1574aff0f766984d");
+			GmailAccount user1 = new GmailAccount("sohan.karun1@gmail.com");
+			String id = user1.sendEmail("sohan.karun2@gmail.com", "nhyrsd","Hello from Sohan.karun3").getId();
+			
+		GmailAccount user2 = new GmailAccount("sohan.karun2@gmail.com");
+		Message m = user1.getEmail(id);
+		Thread.sleep(5000);
+		System.out.println(m.getRaw());
+		System.out.println(m.toPrettyString().toString());
+		
 		
 		
 		
