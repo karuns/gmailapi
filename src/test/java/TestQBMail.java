@@ -14,13 +14,13 @@ import org.testng.annotations.Test;
  */
 
 public class TestQBMail {	
-	@Test(dataProvider="data-provider-sample1",dataProviderClass=DataProviderClass.class)
-    public static void Test3(String from, String to, String subject, String body) throws InterruptedException, IOException {
+	@Test(dataProvider="data-provider-sample1",dataProviderClass=DataProviderClass.class, groups={"send-receive-basics"})
+    public static void Send_and_receive(String from, String to, String subject, String body) throws InterruptedException, IOException {
 
 		GmailAccount user1 = new GmailAccount(from);
 		String id = user1.sendEmail(to, subject,body).getId();
 			
-		GmailAccount user2 = new GmailAccount("sohan.karun2@gmail.com");
+		GmailAccount user2 = new GmailAccount(to);
 		Message m = user1.getEmail(id);
 		Thread.sleep(2000);
 		
@@ -28,18 +28,16 @@ public class TestQBMail {
 		System.out.println("PASS -"+m.toPrettyString().toString());
 	}
 	
-	@Test(enabled=false)
-	public static void Test_User1_User2() throws InterruptedException  {
-		GmailAccount user1 = new GmailAccount("sohan.karun1@gmail.com");
-		user1.sendEmail("sohan.karun2@gmail.com", "hyrsd","Hello from Sohan.karun1");
+	@Test(dataProvider="data-provider-sample1",dataProviderClass=DataProviderClass.class, groups={"send-only-from-user1"})
+	public static void Test_User1_User2(String from, String to, String subject, String body) throws InterruptedException  {
+		GmailAccount user1 = new GmailAccount(from);
+		user1.sendEmail(to, subject,body);
 			
 	}
 	
-	@Test(enabled=false)
-	public static void Test1() throws InterruptedException {
-		Thread.sleep(5000);
-		GmailAccount user2 = new GmailAccount("sohan.karun2@gmail.com");
-		user2.sendEmail("sohan.karun1@gmail.com", "eyrsd","Hello from Sohan.karun2");
+	@Test(dataProvider="data-provider-sample1",dataProviderClass=DataProviderClass.class, groups={"send-only-from-user2"})
+	public static void Test_User2_User1(String to, String from, String subject, String body) throws InterruptedException  {
+		GmailAccount user1 = new GmailAccount(from);
+		user1.sendEmail(to, subject,body);
 	}
-   
 }
