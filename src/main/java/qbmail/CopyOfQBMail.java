@@ -10,7 +10,6 @@ import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
-
 import com.google.api.services.gmail.GmailScopes;
 import com.google.api.services.gmail.model.*;
 import com.google.api.services.gmail.Gmail;
@@ -21,7 +20,9 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
 
-public class GmailQuickstart {
+import javax.mail.MessagingException;
+
+public class CopyOfQBMail {
     /** Application name. */
     private static final String APPLICATION_NAME = "Gmail API Java Quickstart";
 
@@ -43,7 +44,7 @@ public class GmailQuickstart {
      * If modifying these scopes, delete your previously saved credentials
      * at ~/.credentials/gmail-java-quickstart
      */
-    private static final List<String> SCOPES = Arrays.asList(GmailScopes.GMAIL_LABELS);
+    private static final List<String> SCOPES = Arrays.asList(GmailScopes.GMAIL_LABELS,GmailScopes.GMAIL_COMPOSE, GmailScopes.GMAIL_SEND,GmailScopes.MAIL_GOOGLE_COM);
 
     static {
         try {
@@ -63,7 +64,7 @@ public class GmailQuickstart {
     public static Credential authorize() throws IOException {
         // Load client secrets.
         InputStream in =
-            GmailQuickstart.class.getResourceAsStream("/client_secret.json");
+            CopyOfQBMail.class.getResourceAsStream("/client_secret.json");
         GoogleClientSecrets clientSecrets =
             GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
@@ -93,23 +94,26 @@ public class GmailQuickstart {
                 .build();
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, MessagingException {
         // Build a new authorized API client service.
         Gmail service = getGmailService();
 
         // Print the labels in the user's account.
         String user = "me";
-        ListLabelsResponse listResponse =
-            service.users().labels().list(user).execute();
-        List<Label> labels = listResponse.getLabels();
-        if (labels.size() == 0) {
-            System.out.println("No labels found.");
-        } else {
-            System.out.println("Labels:");
-            for (Label label : labels) {
-                System.out.printf("- %s\n", label.getName());
-            }
-        }
+//        ListLabelsResponse listResponse =
+//            service.users().labels().list(user).execute();
+//        List<Label> labels = listResponse.getLabels();
+//        if (labels.size() == 0) {
+//            System.out.println("No labels found.");
+//        } else {
+//            System.out.println("Labels:");
+//            for (Label label : labels) {
+//                System.out.printf("- %s\n", label.getName());
+//            }
+//        }
+//        
+        SendEmail se = new SendEmail();
+        SendEmail.sendMessage(service, "me",  se.createEmail("sohan.karun2@gmail.com", "me", "hedry","Hello from Sohan.karun2"));
     }
 
 }
