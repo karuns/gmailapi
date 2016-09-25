@@ -19,16 +19,16 @@ public class Log {
 	
 	
 	public static void testPassed() {
-		enteringModule("Test Passed");
+		pass(enteringModule("Test Passed"));
     }
 	
 	public static void testFailed() {
-		enteringModule("Test Failed");
+		error(enteringModule("Test Failed"));
     }
 	
-	private static void enteringModule(String strText) {
+	private static String enteringModule(String strText) {
         StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();
         StackTraceElement e = stacktrace[3];//maybe this number needs to be corrected
-        System.out.println(strText + ": " + e.getClassName() + "." + e.getMethodName() + " ....");
+        return strText + ": " + e.getClassName() + "." + e.getMethodName() + " ....";
     }
 }
