@@ -40,7 +40,7 @@ public class TestQBMail extends BaseTest {
 		}
 	}
 	
-	@Test(dataProvider="userdata-provider-basictest2",dataProviderClass=DataProviderClass.class, groups={"send-receive-basics"})
+	@Test(dataProvider="userdata-provider-basictest2",dataProviderClass=DataProviderClass.class, groups={"send-receive-basics2"})
     public static void basicSendandReceiveTest2(String from, String to,String cc, String subject, String body) throws InterruptedException, IOException {
 		if(QbMailUtils.basicSendandVerify(from, to,cc, subject,body)) {
 			Log.testPassed();
