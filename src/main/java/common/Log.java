@@ -22,6 +22,15 @@ public class Log {
 		pass(enteringModule("Test Passed"));
     }
 	
+	public static void testPassed(String text) {
+		pass(enteringModule("Test Passed")+" with"+text);
+    }
+	
+	
+	public static void testFailed(String text) {
+		error(enteringModule("Test Failed"));
+    }
+	
 	public static void testFailed() {
 		error(enteringModule("Test Failed"));
     }

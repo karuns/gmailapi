@@ -33,20 +33,20 @@ public class TestQBMail extends BaseTest {
 	@Test(dataProvider="userdata-provider-basictest",dataProviderClass=DataProviderClass.class, groups={"send-receive-basics"})
     public static void basicSendandReceiveTest(String from, String to, String subject, String body) throws InterruptedException, IOException {
 		if(QbMailUtils.basicSendandVerify(from, to, subject,body)) {
-			Log.testPassed();
+			Log.testPassed(from+","+to+","+subject+","+body);
 		}
 		else {
-			Log.testFailed();
+			Log.testFailed(from+","+to+","+subject+","+body);
 		}
 	}
 	
 	@Test(dataProvider="userdata-provider-basictest2",dataProviderClass=DataProviderClass.class, groups={"send-receive-basics2"})
     public static void basicSendandReceiveTest2(String from, String to,String cc, String subject, String body) throws InterruptedException, IOException {
 		if(QbMailUtils.basicSendandVerify(from, to,cc, subject,body)) {
-			Log.testPassed();
+			Log.testPassed(from+","+to+","+cc+","+subject+","+body);
 		}
 		else {
-			Log.testFailed();
+			Log.testFailed(from+","+to+","+cc+","+subject+","+body);
 		}
 	}
 
