@@ -1,4 +1,4 @@
-package gclient;
+package gclient.pageclass;
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
@@ -61,10 +61,8 @@ public class GmailAccount {
 			this.DATA_STORE_FACTORY = new FileDataStoreFactory(this.dataStoreDir);
 	        this.service = getGmailService();
 		} catch (GeneralSecurityException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}   
     }
@@ -109,26 +107,40 @@ public class GmailAccount {
     }
     
     public  Message sendEmail(String to, String subject, String bodyText) {
+    	return sendEmailInternal(to, "",subject, bodyText);
+    }
+    
+    public  Message sendEmail(String to, String cc, String subject, String bodyText) {
+    	return sendEmailInternal(to, cc, subject, bodyText);
+    }
+    
+    
+    private Message sendEmailInternal(String to, String cc, String subject, String bodyText) {
     	try {
-			return SendEmail.sendMessage(service, userId, SendEmail.createEmail(to, userId, subject, bodyText));
+			return SendEmail.sendMessage(service, userId, SendEmail.createEmail(to, cc, userId, subject, bodyText));
 		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
     }
     
-    public  Message getEmail(String emailId) {
-			try {
-				return GetMessage.getMessage(service, userId, emailId);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return null;
+    public  Message getEmailMatchingQuery(String query) {
+		try {
+			return GetMessage.getMessageWithQuery(service, userId,query);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
     }
 
+    public  Message getEmail(String messageId) {
+		try {
+			return GetMessage.getMessage(service, userId, messageId);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+    }
 }

@@ -14,7 +14,7 @@ import com.google.api.services.gmail.GmailScopes;
 import com.google.api.services.gmail.model.*;
 import com.google.api.services.gmail.Gmail;
 
-import gclient.SendEmail;
+import gclient.pageclass.SendEmail;
 
 import java.io.IOException;
 import java.io.InputStream;
