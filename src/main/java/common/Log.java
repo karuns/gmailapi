@@ -23,7 +23,7 @@ public class Log {
     }
 	
 	public static void testPassed(String text) {
-		pass(enteringModule("Test Passed")+" with"+text);
+		pass(enteringModule("Test Passed")+" with "+text);
     }
 	
 	
