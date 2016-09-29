@@ -2,19 +2,19 @@ package common;
 
 public class Log {
 	public static void pass(String message) {
-		System.out.println("PASS  -"+message);
+		System.out.println("PASS -"+message);
 	}
 	
 	public static void error(String message) {
-		System.out.println("ERROR  -"+message);
+		System.out.println("ERROR -"+message);
 	}
 	
 	public static void fatal(String message) {
-		System.out.println("FATAL  -"+message);
+		System.out.println("FATAL -"+message);
 	}
 	
 	public static void info(String message) {
-		System.out.println("INFO  -"+message);
+		System.out.println("INFO -"+message);
 	}
 	
 	
