@@ -16,6 +16,8 @@ import common.Log;
 
 public class QbMailUtils {
 	
+	private static final int SYNC_TIME = 1000;
+	
 	public static boolean basicSendandVerify(String from, String to, String cc, String subject, String body) throws InterruptedException, IOException {
 		return basicSendandVerifyInernal(from, to, cc, subject, body);
 	}
@@ -44,7 +46,7 @@ public class QbMailUtils {
 			recipientList.add(to);
 			recipientList.add(cc);
 		}
-		Thread.sleep(5000);
+		Thread.sleep(SYNC_TIME);
 		
 		// Creating to object and going thru each account and verifying
 		Stack<GmailAccount> toList = new Stack<GmailAccount>();
