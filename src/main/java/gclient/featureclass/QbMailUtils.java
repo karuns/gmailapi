@@ -16,7 +16,7 @@ import common.Log;
 
 public class QbMailUtils {
 	
-	private static final int SYNC_TIME = 1000;
+	private static final int SYNC_TIME = 5000;
 	
 	public static boolean basicSendandVerify(String from, String to, String cc, String subject, String body) throws InterruptedException, IOException {
 		return basicSendandVerifyInernal(from, to, cc, subject, body);
