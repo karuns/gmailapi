@@ -44,7 +44,7 @@ public class QbMailUtils {
 			recipientList.add(to);
 			recipientList.add(cc);
 		}
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		
 		// Creating to object and going thru each account and verifying
 		Stack<GmailAccount> toList = new Stack<GmailAccount>();
