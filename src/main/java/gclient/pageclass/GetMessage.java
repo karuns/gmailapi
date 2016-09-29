@@ -52,14 +52,14 @@ public class GetMessage {
    * @throws IOException
    * @throws MessagingException
    */
-  public static MimeMessage getMimeMessage(Gmail service, String userId, String messageId)
-      throws IOException, MessagingException {
-	  
-    Message message = service.users().messages().get(userId, messageId).setFormat("raw").execute();
-    byte[] emailBytes = Base64.decodeBase64(message.getRaw());
-    Properties props = new Properties();
-    Session session = Session.getDefaultInstance(props, null);
-    MimeMessage email = new MimeMessage(session, new ByteArrayInputStream(emailBytes));
-    return email;
-  }
+//  public static MimeMessage getMimeMessage(Gmail service, String userId, String messageId)
+//      throws IOException, MessagingException {
+//	  
+//    Message message = service.users().messages().get(userId, messageId).setFormat("raw").execute();
+//    byte[] emailBytes = Base64.decodeBase64(message.getRaw());
+//    Properties props = new Properties();
+//    Session session = Session.getDefaultInstance(props, null);
+//    MimeMessage email = new MimeMessage(session, new ByteArrayInputStream(emailBytes));
+//    return email;
+//  }
 }

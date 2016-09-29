@@ -16,13 +16,14 @@ import common.Log;
 
 public class QbMailUtils {
 	
+	public static boolean basicSendandVerify(String from, String to, String cc, String subject, String body) throws InterruptedException, IOException {
+		return basicSendandVerifyInernal(from, to, cc, subject, body);
+	}
+	
 	public static boolean basicSendandVerify(String from, String to, String subject, String body) throws InterruptedException, IOException {
 		return basicSendandVerifyInernal(from, to, "", subject, body);
 	}
 	
-	public static boolean basicSendandVerify(String from, String to, String cc, String subject, String body) throws InterruptedException, IOException {
-		return basicSendandVerifyInernal(from, to, cc, subject, body);
-	}
 	
 	private static boolean basicSendandVerifyInernal(String from, String to, String cc, String subject, String body) throws InterruptedException, IOException {
 		ArrayList<String> recipientList = new ArrayList<String>();

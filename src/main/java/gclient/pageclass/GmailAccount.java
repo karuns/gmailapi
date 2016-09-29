@@ -37,22 +37,7 @@ public class GmailAccount {
     private final List<String> SCOPES = Arrays.asList(GmailScopes.GMAIL_LABELS,GmailScopes.GMAIL_COMPOSE, GmailScopes.GMAIL_SEND,GmailScopes.MAIL_GOOGLE_COM);
     Gmail service;
     
-    public GmailAccount (String userId,String appName) {
-    	this.userId = userId;    	
-    	this.dataStoreDir = new java.io.File(System.getProperty("user.home"), ".credentials/gmail-java_"+userId);    	
-        try {
-			this.HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-			this.DATA_STORE_FACTORY = new FileDataStoreFactory(this.dataStoreDir);
-	        this.service = getGmailService();
-		} catch (GeneralSecurityException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-        
-        APPLICATION_NAME = "Gmail API Java Quickstart new";
-    	
-    }
+    
     public GmailAccount (String userId) {
     	this.userId = userId;    	
     	this.dataStoreDir = new java.io.File(System.getProperty("user.home"), ".credentials/gmail-java_"+userId);    	
@@ -66,6 +51,23 @@ public class GmailAccount {
 			e.printStackTrace();
 		}   
     }
+    
+    public GmailAccount (String userId,String appName) {
+    	this.userId = userId;    	
+    	this.dataStoreDir = new java.io.File(System.getProperty("user.home"), ".credentials/gmail-java_"+userId);    	
+        try {
+			this.HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
+			this.DATA_STORE_FACTORY = new FileDataStoreFactory(this.dataStoreDir);
+	        this.service = getGmailService();
+		} catch (GeneralSecurityException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        APPLICATION_NAME = "Gmail API Java Quickstart new";
+    }
+    
+  
 
    
     /**
