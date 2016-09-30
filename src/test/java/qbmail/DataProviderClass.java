@@ -12,6 +12,9 @@ public class DataProviderClass {
 		return new Object[][] {
 			{u1,u2,"Hi1","Hello from "+u1},
 			{u1,u2,"Hi2","Hello from "+u1},
+			{u1,u2,"Hi3","Hello from "+u1},
+			{u1,u2,"Hi1","Hello from "+u1},
+			{u1,u2,"Hi2","Hello from "+u1},
 			{u1,u2,"Hi3","Hello from "+u1}
 		};
 	}

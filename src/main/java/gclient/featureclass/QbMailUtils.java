@@ -16,13 +16,16 @@ import common.Log;
 
 public class QbMailUtils {
 	
-	public static boolean basicSendandVerify(String from, String to, String subject, String body) throws InterruptedException, IOException {
-		return basicSendandVerifyInernal(from, to, "", subject, body);
-	}
+	private static final int SYNC_TIME = 5000;
 	
 	public static boolean basicSendandVerify(String from, String to, String cc, String subject, String body) throws InterruptedException, IOException {
 		return basicSendandVerifyInernal(from, to, cc, subject, body);
 	}
+	
+	public static boolean basicSendandVerify(String from, String to, String subject, String body) throws InterruptedException, IOException {
+		return basicSendandVerifyInernal(from, to, "", subject, body);
+	}
+	
 	
 	private static boolean basicSendandVerifyInernal(String from, String to, String cc, String subject, String body) throws InterruptedException, IOException {
 		ArrayList<String> recipientList = new ArrayList<String>();
@@ -43,7 +46,7 @@ public class QbMailUtils {
 			recipientList.add(to);
 			recipientList.add(cc);
 		}
-		Thread.sleep(4000);
+		Thread.sleep(SYNC_TIME);
 		
 		// Creating to object and going thru each account and verifying
 		Stack<GmailAccount> toList = new Stack<GmailAccount>();
